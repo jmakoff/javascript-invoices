@@ -1,0 +1,28 @@
+<div ng-controller="customersCntrl">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Phone number
+            </th>
+            <th>
+                Address
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="customer in customerData">
+            <td>{{customer.id}}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.phone}}</td>
+            <td>{{customer.address}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
