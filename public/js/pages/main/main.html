@@ -1,1 +1,33 @@
-<h1>hello</h1>
+<div ng-controller="mainPageCtrl">
+    <h3>List of invoices</h3>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                customer ID
+            </th>
+            <th>
+                Discount
+            </th>
+            <th>
+                Total
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="invoice in invoicesData">
+            <td>{{invoice.id}}</td>
+            <td>{{invoice.customer_id}}</td>
+            <td>{{invoice.discount}}</td>
+            <td>{{invoice.total}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-default" data-toggle="modal" data-target="#newInvoice">Create new invoice</button>
+    <ng-include src="'js/pages/main/modal/newInvoiceForm.html'"></ng-include>
+
+</div>
