@@ -22,6 +22,7 @@ app.controller('modalCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.addProduct = function () {
         $scope.invoiceProducts.push({
             name: $scope.selectedProduct.name,
+            product_id: $scope.selectedProduct.id,
             price: $scope.selectedProduct.price,
             quantity: $scope.selectedProduct.quantity,
             discount: $scope.selectedProduct.discount
@@ -38,7 +39,14 @@ app.controller('modalCtrl', ['$scope', '$http', function ($scope, $http) {
             customer_id: $scope.selectedCustomer.id,
             total: $scope.invoiceTotalPrice.toFixed(2)
         }).then(function (resp) {
-            console.log(resp);
+
+            $http.post("http://localhost:8000/api/invoices/" + resp.data.id + "/items", {
+                product_id: $scope.invoiceProducts[$scope.invoiceProducts.length-1].product_id,
+                quantity: $scope.invoiceProducts[$scope.invoiceProducts.length-1].quantity
+            }).then(function (resp) {
+                console.log(resp);
+
+            })
         })
     };
 
