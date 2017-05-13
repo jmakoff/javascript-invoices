@@ -1,0 +1,13 @@
+.my-modal-width{
+    width: 1000px;
+}
+.my-btn-margin{
+    margin-top: 10px;
+}
+.my-fix-input{
+    width: 35%;
+    display: inline-block;
+}
+.left-text{
+    text-align: left !important;
+}
