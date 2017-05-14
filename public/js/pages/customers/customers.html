@@ -14,6 +14,9 @@
             <th>
                 Address
             </th>
+            <th>
+                Delete customer
+            </th>
         </tr>
         </thead>
         <tbody>
@@ -22,7 +25,11 @@
             <td>{{customer.name}}</td>
             <td>{{customer.phone}}</td>
             <td>{{customer.address}}</td>
+            <td> <button class="btn btn-danger" ng-click="removeCustomerFromTable(customer.id)"><span
+                    class="glyphicon glyphicon-remove"></span></button> </td>
         </tr>
         </tbody>
+        <button class="btn btn-primary" data-toggle="modal" data-target="#newCustomer">Create new product</button>
+        <ng-include src="'js/pages/customers/newCustomer/newCustomer.html'"></ng-include>
     </table>
 </div>

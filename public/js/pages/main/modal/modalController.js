@@ -57,5 +57,10 @@ app.controller('modalCtrl', ['$scope', '$http','$rootScope', "REST_CONST", funct
         })
     };
 
+    $('#newInvoice').on('hidden.bs.modal', function (e) {
+        $scope.selectedProduct = ''; //cleaning modal
+        $scope.selectedCustomer = '';
+    })
+
 
 }]);

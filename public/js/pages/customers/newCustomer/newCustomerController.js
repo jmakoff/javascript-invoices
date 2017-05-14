@@ -1,4 +1,4 @@
-app.controller('newProdCtrl', ["$scope", "$http", "REST_CONST","$rootScope", function ($scope, $http, REST_CONST, $rootScope) {
+app.controller('newCustomerCtrl', ["$scope", "$http", "REST_CONST","$rootScope", function ($scope, $http, REST_CONST, $rootScope) {
     $scope.createProduct = function () {
         $http.post(REST_CONST.url + "/products", {
             name: $scope.newProductName,
