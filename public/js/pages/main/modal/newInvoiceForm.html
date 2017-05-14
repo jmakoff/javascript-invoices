@@ -14,43 +14,48 @@
                             <select class="form-control" id="customerName"
                                     ng-options="customer.name  for customer in customersList"
                                     ng-model="selectedCustomer"
+                                    ng-disabled="selectedCustomer"
                                     required>
                             </select>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <h4 class="lead text-center">Products</h4>
-                        <table class="table table-bordered">
-                            <thead>
-                            <tr>
-                                <th>Product Name</th>
-                                <th>Product Price</th>
-                                <th>Product Quantity</th>
-                                <th>Product Discount</th>
-                                <th>Delete Product</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="product in invoiceProducts track by $index">
-                                <td>{{product.name}}</td>
-                                <td>{{product.price}}</td>
-                                <td>{{product.quantity}}</td>
-                                <td>{{product.discount}}%</td>
-                                <td>
-                                    <button class="btn btn-danger" ng-click="removeProduct($index)"><span
-                                            class="glyphicon glyphicon-remove"></span></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Total Price: {{invoiceTotalPrice.toFixed(2)}}<br>
-                                    Discount: {{totalDiscount.toFixed(2)}}
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <div ng-show="selectedCustomer">
+                        <div class="form-group">
+                            <h4 class="lead text-center">Products</h4>
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Product Price</th>
+                                    <th>Product Quantity</th>
+                                    <th>Product Discount</th>
+                                    <th>Delete Product</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="product in invoiceProducts track by $index">
+                                    <td>{{product.name}}</td>
+                                    <td>{{product.price}}</td>
+                                    <td>{{product.quantity}}</td>
+                                    <td>{{product.discount}}%</td>
+                                    <td>
+                                        <button class="btn btn-danger" ng-click="removeProduct($index)"><span
+                                                class="glyphicon glyphicon-remove"></span></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Total Price: {{invoiceTotalPrice.toFixed(2)}}<br>
+                                        Discount: {{totalDiscount.toFixed(2)}}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
                             <div class="col-md-3">
-                                <select class="form-control" ng-options="product.name for product in productsList"
-                                        ng-model="selectedProduct" required></select>
+                                <select class="form-control"
+                                        ng-options="product.name for product in productsList"
+                                        ng-model="selectedProduct"
+                                        required>
+                                </select>
                             </div>
                             <label class="control-label col-md-3 left-text" ng-if="selectedProduct">Price(per one):
                                 {{selectedProduct.price}}$</label>
@@ -66,10 +71,10 @@
                             </div>
                             <div class=" col-md-12 my-btn-margin">
                                 <button class="btn btn-primary" ng-disabled="addForm.$invalid"
-                                        ng-click="addProduct()">
-                                    Add product
+                                        ng-click="addProduct()">Add product
                                 </button>
                             </div>
+                        </div>
                     </div>
                 </form>
             </div>

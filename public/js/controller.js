@@ -1,4 +1,4 @@
-app.controller('mainCtrl', ["$scope", "$http", function ($scope, $http) {
+app.controller('mainCtrl', ["$scope", "$http","REST_CONST", function ($scope, $http, REST_CONST) {
 
     $scope.productsClick = function () {
         $scope.shownContent = 'showProducts'

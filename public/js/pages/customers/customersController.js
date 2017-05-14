@@ -1,5 +1,5 @@
-app.controller('customersCntrl', ["$scope", "$http", function ($scope, $http) {
-    $http.get('http://localhost:8000/api/customers').then(function (resp) {
+app.controller('customersCntrl', ["$scope", "$http","REST_CONST", function ($scope, $http, REST_CONST) {
+    $http.get(REST_CONST.url + '/customers').then(function (resp) {
         $scope.customerData = resp.data;
             console.log(resp)
         }

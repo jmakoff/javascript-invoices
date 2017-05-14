@@ -1,0 +1,32 @@
+<div id="newProduct" ng-controller="newProdCtrl" class="modal fade" tabindex="-1" aria-hidden="true" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog my-modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title" id="myModalLabel">Add new product</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" name="productAddingForm">
+                    <div class="form-group ">
+                        <label for="productName" class="control-label col-md-2">Name of Product: </label>
+                        <input id="productName" type="text" class="form-control my-fix-input" placeholder="Enter new product name here"
+                               ng-model="newProductName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice" class="control-label col-md-2">Price of Product: </label>
+                        <input id="productPrice" type="number" min="0" step="0.01" class="form-control my-fix-input"
+                               placeholder="Enter new product price here"
+                               ng-model="newProductPrice" required>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" ng-disabled="productAddingForm.$invalid"
+                ng-click="createProduct()">Create product</button>
+            </div>
+
+        </div>
+    </div>
+</div>
