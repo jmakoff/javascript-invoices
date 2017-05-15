@@ -24,10 +24,11 @@
             <td>{{product.price}}</td>
             <td>
                 <button class="btn btn-danger" ng-click="removeProductFromTable(product.id)" title="Remove product"
-                        data-toggle="modal" data-target="#editProduct">
+                        >
                     <span class="glyphicon glyphicon-remove"></span>
                 </button>
-                <button class=" btn btn-primary" title="Edit product" ng-click="editProduct(product.id)">
+                <button class=" btn btn-primary" title="Edit product" ng-click="editProduct(product.id)"
+                        data-toggle="modal" data-target="#editProduct">
                     <span class="glyphicon glyphicon-edit"></span>
                 </button>
             </td>

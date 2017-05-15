@@ -3,16 +3,15 @@ app.controller('editProductCtrl', ["$scope", "$http", "REST_CONST","$rootScope",
      $http.get(REST_CONST.url + '/products/'+ product_id).then(function (resp) {
          $scope.editedProductName = resp.data.name;
          $scope.editedProductPrice = resp.data.price;
+         $scope.editedIndex = product_id;
      })
  };
-    $scope.createProduct = function () {
-        $http.post(REST_CONST.url + "/products", {
-            name: $scope.newProductName,
-            price: $scope.newProductPrice
+    $scope.sendEditedProduct = function () {
+        $http.put(REST_CONST.url + "/products/" + $scope.editedIndex , {
+            name: $scope.editedProductName,
+            price: $scope.editedProductPrice
         }).then(function (resp) {
-            console.log('New Product Added: ' + resp.data.name +' '+ resp.data.price + '$');
-            $scope.newProductName = '';
-            $scope.newProductPrice = '';
+            console.log('Product Edited, index: ' + resp.data.id );
             $http.get(REST_CONST.url + '/products').then(function (resp) {
                     $rootScope.productsData = resp.data;
                 }
