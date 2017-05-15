@@ -12,7 +12,7 @@
                 Price
             </th>
             <th>
-                Delete Product
+                Actions
             </th>
 
         </tr>
@@ -22,8 +22,14 @@
             <td>{{product.id}}</td>
             <td>{{product.name}}</td>
             <td>{{product.price}}</td>
-            <td><button class="btn btn-danger" ng-click="removeProductFromTable(product.id)"><span
-                    class="glyphicon glyphicon-remove"></span></button>
+            <td>
+                <button class="btn btn-danger" ng-click="removeProductFromTable(product.id)" title="Remove product"
+                        data-toggle="modal" data-target="#editProduct">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+                <button class=" btn btn-primary" title="Edit product" ng-click="editProduct(product.id)">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </button>
             </td>
 
         </tr>
@@ -31,4 +37,6 @@
     </table>
     <button class="btn btn-primary" data-toggle="modal" data-target="#newProduct">Create new product</button>
     <ng-include src="'js/pages/products/newProduct/newProductModal.html'"></ng-include>
+    <ng-include src="'js/pages/products/editProduct/editProduct.html'"></ng-include>
+
 </div>
