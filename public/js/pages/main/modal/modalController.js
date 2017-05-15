@@ -50,7 +50,6 @@ app.controller('modalCtrl', ['$scope', '$http','$rootScope', "REST_CONST", funct
                 product_id: $scope.invoiceProducts[$scope.invoiceProducts.length-1].product_id,
                 quantity: $scope.invoiceProducts[$scope.invoiceProducts.length-1].quantity
             }).then(function (resp) {
-                console.log(resp);
                 $scope.invoiceProducts[ $scope.invoiceProducts.length-1].invoiceItem_id = resp.data.id;
                 console.log("invoiceItem_id:" + $scope.invoiceProducts[ $scope.invoiceProducts.length-1].invoiceItem_id)
             })
