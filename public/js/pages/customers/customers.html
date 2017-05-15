@@ -15,7 +15,7 @@
                 Address
             </th>
             <th>
-                Delete customer
+                Actions
             </th>
         </tr>
         </thead>
@@ -26,11 +26,17 @@
             <td>{{customer.phone}}</td>
             <td>{{customer.address}}</td>
             <td> <button class="btn btn-danger" ng-click="removeCustomerFromTable(customer.id)"><span
-                    class="glyphicon glyphicon-remove"></span></button> </td>
+                    class="glyphicon glyphicon-remove"></span></button>
+                <button class=" btn btn-primary" title="Edit customer" ng-click="editCustomer(customer.id)"
+                        data-toggle="modal" data-target="#editCustomer">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </button>
+            </td>
         </tr>
         </tbody>
 
     </table>
     <button class="btn btn-primary" data-toggle="modal" data-target="#newCustomer">Create new customer</button>
     <ng-include src="'js/pages/customers/newCustomer/newCustomer.html'"></ng-include>
+    <ng-include src="'js/pages/customers/editCustomer/editCustomer.html'"></ng-include>
 </div>

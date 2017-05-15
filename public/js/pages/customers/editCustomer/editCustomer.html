@@ -1,0 +1,37 @@
+<div id="editCustomer"  ng-controller="editCustomerCtrl" class="modal fade" tabindex="-1" aria-hidden="true" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog my-modal-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title" id="myModalLabel">Edit Customer</h3>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" name="customerEditingForm">
+                    <div class="form-group ">
+                        <label for="customerName" class="control-label col-md-2">Name of Customer: </label>
+                        <input id="customerName" type="text" class="form-control my-fix-input" placeholder="Enter new customer name here"
+                               ng-model="editedCustomerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerPhone" class="control-label col-md-2">Phone Number of Customer: </label>
+                        <input id="customerPhone" type="tel" class="form-control my-fix-input"
+                               placeholder="Enter new product price here"
+                               ng-model="editedCustomerPhone" required>
+                    </div>
+                    <div class="form-group ">
+                        <label for="customerAddress" class="control-label col-md-2">Address of Customer: </label>
+                        <input id="customerAddress" type="text" class="form-control my-fix-input" placeholder="Enter new customer address here"
+                               ng-model="editedCustomerAddress" required>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" ng-disabled="customerEditingForm.$invalid"
+                        ng-click="sendEditedData()">Send this data</button>
+            </div>
+
+        </div>
+    </div>
+</div>
